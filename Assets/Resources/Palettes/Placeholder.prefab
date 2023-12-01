@@ -51,7 +51,7 @@ Tilemap:
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
-      m_AllTileFlags: 1073741825
+      m_AllTileFlags: 1
   - first: {x: 4, y: 0, z: 0}
     second:
       serializedVersion: 2
@@ -122,7 +122,7 @@ Tilemap:
   - m_RefCount: 1
     m_Data: {r: 0.4433962, g: 0.287177, b: 0.15267888, a: 1}
   - m_RefCount: 1
-    m_Data: {r: 0.30927375, g: 0.3584932, b: 0.4716981, a: 1}
+    m_Data: {r: 0.3226237, g: 0.36625522, b: 0.4716981, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
