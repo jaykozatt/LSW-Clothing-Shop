@@ -10,14 +10,17 @@ public class InventorySlotGUI : MonoBehaviour
     private Image icon;
     private TextMeshProUGUI price;
 
-    private void Awake() {
+
+    private void Start() {
+        Init();
+        UpdateDisplay();
+    }
+
+    public void Init()
+    {
         // background = GetComponentsInChildren<Image>()[0];
         icon = GetComponentsInChildren<Image>()[1];
         price = GetComponentInChildren<TextMeshProUGUI>();
-    }
-
-    private void Start() {
-        UpdateDisplay();
     }
 
     private void UpdateDisplay() 

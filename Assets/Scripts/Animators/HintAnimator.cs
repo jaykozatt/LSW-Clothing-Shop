@@ -14,7 +14,7 @@ public class HintAnimator : MonoBehaviour
         sequence = DOTween.Sequence();
 
         sequence.Append(
-            transform.DOLocalMoveY(transform.localPosition.y+10f, .125f)
+            transform.DOLocalMoveY(transform.localPosition.y+.25f, .125f)
             .SetEase(Ease.Linear)
             .SetDelay(Random.value/10)
         );
@@ -22,7 +22,7 @@ public class HintAnimator : MonoBehaviour
             transform.DOLocalMoveY(transform.localPosition.y, .125f)
         );
         sequence.Append(
-            transform.DOLocalMoveY(transform.localPosition.y-10f, .125f)
+            transform.DOLocalMoveY(transform.localPosition.y-.25f, .125f)
             .SetEase(Ease.Linear)
         );
         sequence.Append(

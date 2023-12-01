@@ -13,6 +13,7 @@ public class InventoryGUI : StaticInstance<InventoryGUI>
 
     protected override void Awake() 
     {
+        base.Awake();
         _slots = GetComponentsInChildren<InventorySlotGUI>();    
     }
 
@@ -20,6 +21,8 @@ public class InventoryGUI : StaticInstance<InventoryGUI>
     {
         PlayerInventory.Instance.OnInventoryChanged += UpdateSlots;
         PlayerInventory.Instance.OnEquipmentChanged += UpdateEquipment;
+
+        CloseInterface();
     }
 
     private void UpdateEquipment(EquipmentSlot slot, Equipable item)
@@ -49,11 +52,12 @@ public class InventoryGUI : StaticInstance<InventoryGUI>
 
     public void OpenInterface()
     {
-        gameObject.SetActive(true);
+        transform.parent.parent.gameObject.SetActive(true);
     }
 
     public void CloseInterface()
     {
-        gameObject.SetActive(false);
+        transform.parent.parent.gameObject.SetActive(false);
+        ShopGUI.Instance.CloseInterface();
     }
 }
