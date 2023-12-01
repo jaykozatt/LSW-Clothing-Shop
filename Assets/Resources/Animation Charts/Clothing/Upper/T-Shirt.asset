@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e337d73477dfd2849b3240cfee00eeda, type: 3}
+  m_Name: T-Shirt
+  m_EditorClassIdentifier: 
+  sourceIdle:
+    framesPerDirection: 3
+    source:
+    - {fileID: -1514450017, guid: 278da879e4da68849a1f857d1bc0b316, type: 3}
+    - {fileID: 799909070, guid: 278da879e4da68849a1f857d1bc0b316, type: 3}
+    - {fileID: 161455206, guid: 278da879e4da68849a1f857d1bc0b316, type: 3}
+    - {fileID: -1282429044, guid: 278da879e4da68849a1f857d1bc0b316, type: 3}
+    - {fileID: -1113462208, guid: 278da879e4da68849a1f857d1bc0b316, type: 3}
+    - {fileID: 1211994068, guid: 278da879e4da68849a1f857d1bc0b316, type: 3}
+    - {fileID: -346605497, guid: 278da879e4da68849a1f857d1bc0b316, type: 3}
+    - {fileID: 237437505, guid: 278da879e4da68849a1f857d1bc0b316, type: 3}
+    - {fileID: -1580170676, guid: 278da879e4da68849a1f857d1bc0b316, type: 3}
+    - {fileID: -1066136903, guid: 278da879e4da68849a1f857d1bc0b316, type: 3}
+    - {fileID: -108566270, guid: 278da879e4da68849a1f857d1bc0b316, type: 3}
+    - {fileID: 743609893, guid: 278da879e4da68849a1f857d1bc0b316, type: 3}
+  sourceWalking:
+    framesPerDirection: 8
+    source:
+    - {fileID: -548215443, guid: 91b577b61286fde4299df74838ba1936, type: 3}
+    - {fileID: -1056590792, guid: 91b577b61286fde4299df74838ba1936, type: 3}
+    - {fileID: 1317583537, guid: 91b577b61286fde4299df74838ba1936, type: 3}
+    - {fileID: 112646399, guid: 91b577b61286fde4299df74838ba1936, type: 3}
+    - {fileID: -804062485, guid: 91b577b61286fde4299df74838ba1936, type: 3}
+    - {fileID: -1052137544, guid: 91b577b61286fde4299df74838ba1936, type: 3}
+    - {fileID: 593140795, guid: 91b577b61286fde4299df74838ba1936, type: 3}
+    - {fileID: -669691822, guid: 91b577b61286fde4299df74838ba1936, type: 3}
+    - {fileID: -1464121268, guid: 91b577b61286fde4299df74838ba1936, type: 3}
+    - {fileID: 1017211725, guid: 91b577b61286fde4299df74838ba1936, type: 3}
+    - {fileID: 743384469, guid: 91b577b61286fde4299df74838ba1936, type: 3}
+    - {fileID: -856713024, guid: 91b577b61286fde4299df74838ba1936, type: 3}
+    - {fileID: 1753758630, guid: 91b577b61286fde4299df74838ba1936, type: 3}
+    - {fileID: 168375081, guid: 91b577b61286fde4299df74838ba1936, type: 3}
+    - {fileID: -1356982941, guid: 91b577b61286fde4299df74838ba1936, type: 3}
+    - {fileID: -1485530725, guid: 91b577b61286fde4299df74838ba1936, type: 3}
+    - {fileID: -125687803, guid: 91b577b61286fde4299df74838ba1936, type: 3}
+    - {fileID: -425483393, guid: 91b577b61286fde4299df74838ba1936, type: 3}
+    - {fileID: -1544928462, guid: 91b577b61286fde4299df74838ba1936, type: 3}
+    - {fileID: 812596778, guid: 91b577b61286fde4299df74838ba1936, type: 3}
+    - {fileID: 1641485220, guid: 91b577b61286fde4299df74838ba1936, type: 3}
+    - {fileID: 284398911, guid: 91b577b61286fde4299df74838ba1936, type: 3}
+    - {fileID: -456119002, guid: 91b577b61286fde4299df74838ba1936, type: 3}
+    - {fileID: 609400969, guid: 91b577b61286fde4299df74838ba1936, type: 3}
+    - {fileID: -1824381018, guid: 91b577b61286fde4299df74838ba1936, type: 3}
+    - {fileID: -363306173, guid: 91b577b61286fde4299df74838ba1936, type: 3}
+    - {fileID: -1364529665, guid: 91b577b61286fde4299df74838ba1936, type: 3}
+    - {fileID: 251904838, guid: 91b577b61286fde4299df74838ba1936, type: 3}
+    - {fileID: 1481024459, guid: 91b577b61286fde4299df74838ba1936, type: 3}
+    - {fileID: -1770604024, guid: 91b577b61286fde4299df74838ba1936, type: 3}
+    - {fileID: 881738866, guid: 91b577b61286fde4299df74838ba1936, type: 3}
+    - {fileID: -1285204950, guid: 91b577b61286fde4299df74838ba1936, type: 3}
