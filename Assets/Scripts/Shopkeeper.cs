@@ -12,7 +12,7 @@ public class Shopkeeper : StaticInstance<Shopkeeper>
     HintAnimator animator;
     bool wasInteracted = false;
 
-    public event System.Action<List<Equipable>> OnNewStock;
+    public event System.Action<List<Equipable>> OnStockChanged;
     // public event System.Action<int, 
 
     private void OnTriggerEnter2D(Collider2D other) 
@@ -70,11 +70,25 @@ public class Shopkeeper : StaticInstance<Shopkeeper>
             _stock.Add(item);
         }
 
-        OnNewStock?.Invoke(_stock);
+        OnStockChanged?.Invoke(_stock);
     }
 
-    public void BuyItemByIndex(int index)
+    public int BuyItem(Equipable item)
     {
+        _stock.Add(item);
+        OnStockChanged?.Invoke(_stock);
 
+        return item.price;
+    }
+
+    public void SellItemByIndex(int index)
+    {
+        Equipable item = _stock[index];
+
+        if (PlayerInventory.Instance.TryBuyItem(item))
+        {
+            _stock.Remove(item);
+            OnStockChanged?.Invoke(_stock);
+        }
     }
 }

@@ -16,6 +16,7 @@ public class InventoryCharacterGUI : MonoBehaviour
         {
             upperSlot.enabled = true;
             upperSlot.sprite = PlayerInventory.Instance.CurrentEquipment.upper.animationSheets.idle.down[0];
+            upperSlot.color = PlayerInventory.Instance.CurrentEquipment.upper.color;
         }
         else
         {
@@ -26,6 +27,7 @@ public class InventoryCharacterGUI : MonoBehaviour
         {
             lowerSlot.enabled = true;
             lowerSlot.sprite = PlayerInventory.Instance.CurrentEquipment.lower.animationSheets.idle.down[0];
+            lowerSlot.color = PlayerInventory.Instance.CurrentEquipment.lower.color;
         }
         else
         {
@@ -36,6 +38,7 @@ public class InventoryCharacterGUI : MonoBehaviour
         {
             footwearSlot.enabled = true;
             footwearSlot.sprite = PlayerInventory.Instance.CurrentEquipment.footwear.animationSheets.idle.down[0];
+            footwearSlot.color = PlayerInventory.Instance.CurrentEquipment.footwear.color;
         }
         else
         {

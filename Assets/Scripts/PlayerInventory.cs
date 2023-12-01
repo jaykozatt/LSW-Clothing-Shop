@@ -26,7 +26,7 @@ public class PlayerInventory : StaticInstance<PlayerInventory>
         _currentMoney = startingMoney;
     }
 
-    public void EquipItem(int index)
+    public void EquipItemByIndex(int index)
     {
         // Get the item out of the inventory
         Equipable item = inventory[index];
@@ -130,14 +130,16 @@ public class PlayerInventory : StaticInstance<PlayerInventory>
         }
     }
 
-    public Equipable SellItem(int index)
+    public void SellItemByIndex(int index)
     {
         Equipable item = inventory[index];
         
-        inventory.Remove(item);
-        AddMoney(item.price);
+        AddMoney(
+            Shopkeeper.Instance.BuyItem(item)
+        );
 
-        return item;
+        inventory.Remove(item);
+        OnInventoryChanged?.Invoke(inventory);
     }
 
 }

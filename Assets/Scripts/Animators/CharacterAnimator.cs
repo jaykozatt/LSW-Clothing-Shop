@@ -52,6 +52,30 @@ public class CharacterAnimator : MonoBehaviour
         _lastDirection = Vector2.down;
     }
 
+    private void Start() {
+        PlayerInventory.Instance.OnEquipmentChanged += UpdateEquipmentCharts;
+    }
+
+    private void UpdateEquipmentCharts(EquipmentSlot slot, Equipable item) 
+    {
+        switch (slot)
+        {
+            case EquipmentSlot.Upper:
+                upperClothes = item?.animationSheets;
+                _upper.color = item != null ? item.color : Color.white;
+                break;
+            case EquipmentSlot.Lower:
+                lowerClothes = item?.animationSheets;
+                _lower.color = item != null ? item.color : Color.white;
+                break;
+            case EquipmentSlot.Footwear:
+                shoes = item?.animationSheets;
+                _shoes.color = item != null ? item.color : Color.white;
+                break;
+            default: break;
+        }
+    }
+
     private void FixedUpdate() 
     {
         ProgressFrame();

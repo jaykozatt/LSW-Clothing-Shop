@@ -46,15 +46,8 @@ public class EquipmentSlotGUI : MonoBehaviour
         UpdateDisplay();
     }
 
-    public void SelectItemFromShop()
+    public void UnequipItem()
     {
-        int index = transform.GetSiblingIndex()-1;
-        // TODO: Send index to ShopManager
-    }
-
-    public void SelectItemFromInventory()
-    {
-        int index = transform.GetSiblingIndex();
-        // TODO: Send index to InventoryManagerGUI
+        if (_item != null) PlayerInventory.Instance.UnequipItem(_item.slot);
     }
 }

@@ -44,9 +44,12 @@ public class InventoryGUI : StaticInstance<InventoryGUI>
 
     private void UpdateSlots(List<Equipable> inventory)
     {
-        for (int i=0; i < inventory.Count; i++)
+        for (int i=0; i < _slots.Length; i++)
         {
-            _slots[i].SetItem(inventory[i]);
+            if (i < inventory.Count)
+                _slots[i].SetItem(inventory[i]);
+            else
+                _slots[i].ClearItem();
         }
     }
 

@@ -8,6 +8,10 @@ public class ShopGUI : StaticInstance<ShopGUI>
     InventorySlotGUI _template;
     List<InventorySlotGUI> _slots;
 
+    public bool IsActive {
+        get => gameObject.activeInHierarchy;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -15,7 +19,7 @@ public class ShopGUI : StaticInstance<ShopGUI>
         _template.gameObject.SetActive(false);
         _slots = new List<InventorySlotGUI>();
 
-        Shopkeeper.Instance.OnNewStock += UpdateSlots;
+        Shopkeeper.Instance.OnStockChanged += UpdateSlots;
     }
 
     // Update is called once per frame
@@ -26,18 +30,25 @@ public class ShopGUI : StaticInstance<ShopGUI>
 
     private void UpdateSlots(List<Equipable> inventory)
     {
-        for (int i=0; i < inventory.Count; i++)
+        for (int i=0; i < Mathf.Max(inventory.Count,_slots.Count); i++)
         {
             if (i >= _slots.Count) 
             {
                 InventorySlotGUI slot = Instantiate(_template, _template.transform.parent);
                 slot.Init();
                 slot.gameObject.SetActive(true);
-                
+
                 _slots.Add(slot);
             }
 
-            _slots[i].SetItem(inventory[i]);
+            if (i < inventory.Count)
+                _slots[i].SetItem(inventory[i]);
+            else
+            {
+                GameObject slot = _slots[i].gameObject;
+                _slots.RemoveAt(i);
+                Destroy(slot);
+            }
         }
     }
 

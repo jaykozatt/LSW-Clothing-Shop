@@ -16,6 +16,13 @@ public class InventorySlotGUI : MonoBehaviour
         UpdateDisplay();
     }
 
+    private void LateUpdate() {
+        if (_item != null && ShopGUI.Instance.IsActive)
+            price.transform.parent.gameObject.SetActive(true);
+        else
+            price.transform.parent.gameObject.SetActive(false);
+    }
+
     public void Init()
     {
         // background = GetComponentsInChildren<Image>()[0];
@@ -53,15 +60,30 @@ public class InventorySlotGUI : MonoBehaviour
         UpdateDisplay();
     }
 
-    public void SelectItemFromShop()
+    public void EquipItem()
     {
-        int index = transform.GetSiblingIndex()-1;
-        // TODO: Send index to ShopManager
+        if (!ShopGUI.Instance.IsActive && _item != null)
+        {
+            int index = transform.GetSiblingIndex();
+            PlayerInventory.Instance.EquipItemByIndex(index);
+        }
     }
 
-    public void SelectItemFromInventory()
+    public void BuyItem()
     {
-        int index = transform.GetSiblingIndex();
-        // TODO: Send index to InventoryManagerGUI
+        if (ShopGUI.Instance.IsActive && _item != null)
+        {
+            int index = transform.GetSiblingIndex();
+            Shopkeeper.Instance.SellItemByIndex(index-1); // Minus one, to account for the non-active template object
+        }
+    }
+
+    public void SellItem()
+    {
+        if (ShopGUI.Instance.IsActive && _item != null)
+        {
+            int index = transform.GetSiblingIndex();
+            PlayerInventory.Instance.SellItemByIndex(index);
+        }
     }
 }
