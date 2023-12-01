@@ -71,17 +71,27 @@ public class PlayerController : StaticInstance<PlayerController>
             BufferInteraction(delayMiliseconds: 100);
         }
 
-        // if (Input.GetKeyDown(KeyCode.Escape))
-        //     switch (_currentState)
-        //     {
-        //         case State.Playing:
-        //             // Puase game
-        //             break;
-        //         case State.Paused:
-        //             // Return control
-        //             break;
-        //         default: break;
-        //     }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (!InventoryGUI.Instance.gameObject.activeInHierarchy)
+                InventoryGUI.Instance.OpenInterface();
+            else
+            {
+                InventoryGUI.Instance.CloseInterface();
+            }
+            
+            // switch (_currentState)
+            // {
+            //     case State.Playing:
+            //         // Puase game
+            //         break;
+            //     case State.Paused:
+            //         // Return control
+            //         break;
+            //     default: break;
+            // }
+        }    
+            
     }
 
     void ExecuteMovement()
@@ -94,4 +104,6 @@ public class PlayerController : StaticInstance<PlayerController>
         await Task.Delay(delayMiliseconds);
         _hasInteractedRecently = false;
     }
+
+    
 }

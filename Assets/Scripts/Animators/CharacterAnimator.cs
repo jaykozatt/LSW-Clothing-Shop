@@ -47,19 +47,15 @@ public class CharacterAnimator : MonoBehaviour
     #endregion
 
 
-    Sequence sequence;
-
     private void Awake() {
         DOTween.Init();
         _lastDirection = Vector2.down;
     }
 
-    private void Update() 
+    private void FixedUpdate() 
     {
         ProgressFrame();
     }
-
-    public void Stop() => sequence.Kill();
 
     public void LookTowards(Transform target)
     {
@@ -69,9 +65,7 @@ public class CharacterAnimator : MonoBehaviour
     public void SetAnimationState(AnimationState state)
     {
         _currentState = state;
-        UpdateAnimationsSheets();
-
-        
+        UpdateAnimationsSheets();        
     }
     private void UpdateAnimationsSheets()
     {
@@ -81,17 +75,17 @@ public class CharacterAnimator : MonoBehaviour
                 _currentHead = headBase.idle;
                 _currentBody = bodyBase.idle;
                 _currentHair = hair.idle;
-                _currentUpper = upperClothes.idle;
-                _currentLower = lowerClothes.idle;
-                _currentShoes = shoes.idle;
+                _currentUpper = upperClothes?.idle;
+                _currentLower = lowerClothes?.idle;
+                _currentShoes = shoes?.idle;
                 break;
             case AnimationState.Walking:
                 _currentHead = headBase.walking;
                 _currentBody = bodyBase.walking;
                 _currentHair = hair.walking;
-                _currentUpper = upperClothes.walking;
-                _currentLower = lowerClothes.walking;
-                _currentShoes = shoes.walking;
+                _currentUpper = upperClothes?.walking;
+                _currentLower = lowerClothes?.walking;
+                _currentShoes = shoes?.walking;
                 break;
             default: break;
         }
@@ -164,7 +158,9 @@ public class CharacterAnimator : MonoBehaviour
 
     void ProgressFrame() 
     {
-        _currentFrame = (_currentFrame+1) % (_currentBody.Count * animationRate);
+        // Do not advance to the next frame unless there's a body animation
+        if (_currentBody != null)
+            _currentFrame = (_currentFrame+1) % (_currentBody.Count * animationRate);
     }
 
 }
