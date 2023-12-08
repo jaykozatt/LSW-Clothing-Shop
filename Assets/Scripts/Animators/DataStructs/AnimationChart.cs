@@ -17,6 +17,14 @@ public class AnimationChart : ScriptableObject
     internal SpriteSheet idle;
     internal SpriteSheet walking;
 
+    private void OnEnable() 
+    {
+        idle ??= new SpriteSheet();
+        walking ??= new SpriteSheet();
+        
+        Sort();
+    }
+
     // I'm using this method to do some quick and dirty auto-sorting in the Editor
     private void OnValidate() 
     {

@@ -22,6 +22,7 @@ public class InventoryGUI : StaticInstance<InventoryGUI>
         PlayerInventory.Instance.OnInventoryChanged += UpdateSlots;
         PlayerInventory.Instance.OnEquipmentChanged += UpdateEquipment;
 
+        if (!ShopGUI.Instance.IsInitialized) ShopGUI.Instance.Init();
         CloseInterface();
     }
 

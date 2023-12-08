@@ -10,7 +10,7 @@ public class Shopkeeper : StaticInstance<Shopkeeper>
     Equipable[] _templates;
 
     HintAnimator animator;
-    bool wasInteracted = false;
+    bool playerOnRange = false;
 
     public event System.Action<List<Equipable>> OnStockChanged;
     // public event System.Action<int, 
@@ -21,16 +21,18 @@ public class Shopkeeper : StaticInstance<Shopkeeper>
         {
             // Show button hint display
             animator.gameObject.SetActive(true);
+            playerOnRange = true;
         }
     }
 
-    private void OnTriggerStay2D(Collider2D other) 
-    {
-        if (other.CompareTag("Player") && Input.GetButtonDown("Interact"))
-        {
-            wasInteracted = true;
-        }
-    }
+    // private void OnTriggerStay2D(Collider2D other) 
+    // {
+    //     Debug.Log("An object is within the shopkeeper's interaction range");
+    //     if (other.CompareTag("Player") && Input.GetButtonDown("Interact"))
+    //     {
+    //         Debug.Log("Interacted with shopkeeper.");
+    //     }
+    // }
 
     private void OnTriggerExit2D(Collider2D other) 
     {
@@ -38,6 +40,7 @@ public class Shopkeeper : StaticInstance<Shopkeeper>
         {
             // Hide button hint display
             animator.gameObject.SetActive(false);
+            playerOnRange = false;
         }
     }
 
@@ -50,17 +53,17 @@ public class Shopkeeper : StaticInstance<Shopkeeper>
 
     private void Update() 
     {
-        if (wasInteracted)
+        if (playerOnRange && Input.GetButtonDown("Interact"))
         {
             ShopGUI.Instance.OpenInterface();
             GenerateNewCollection();
         }
-        wasInteracted = false;
     }
 
     public void GenerateNewCollection()
     {
         _stock.Clear();
+        Debug.Log("Generating new collection...");
 
         Equipable item; 
         for (int i=0; i < quantityInStock; i++)

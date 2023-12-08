@@ -120,7 +120,7 @@ public class PlayerInventory : StaticInstance<PlayerInventory>
         if (inventory.Count < capacity && TrySpendMoney(item.price))
         {
             inventory.Add(item);
-
+            Debug.Log("Bought an item.");
             OnInventoryChanged?.Invoke(inventory);
             return true;
         }

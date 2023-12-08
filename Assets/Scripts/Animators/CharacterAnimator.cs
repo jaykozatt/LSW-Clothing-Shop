@@ -130,7 +130,7 @@ public class CharacterAnimator : MonoBehaviour
         }
         
         // Translate current frame value to the current frame range.
-        _currentFrame = _currentFrame % (_currentBody.Count * animationRate);
+        _currentFrame = _currentFrame % ((_currentBody?.Count ?? 1) * animationRate);
         
         // Translate the currentFrame to its actual frame range value.
         int animationFrame = _currentFrame / animationRate; 

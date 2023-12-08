@@ -26,8 +26,8 @@ public class InventorySlotGUI : MonoBehaviour
     public void Init()
     {
         // background = GetComponentsInChildren<Image>()[0];
-        icon = GetComponentsInChildren<Image>()[1];
-        price = GetComponentInChildren<TextMeshProUGUI>();
+        icon = GetComponentsInChildren<Image>(true)[1];
+        price = GetComponentInChildren<TextMeshProUGUI>(true);
     }
 
     private void UpdateDisplay() 
